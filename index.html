@@ -2,208 +2,486 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Le Karmapa en concert – 2 août 2025</title>
+  <title>🔥 Le Karmapa en concert – 2 août 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Le Karmapa au Théâtre du Gymnase – 2 août 2025">
+  <meta property="og:title" content="🔥 Le Karmapa au Théâtre du Gymnase – 2 août 2025">
   <meta property="og:description" content="Vivez la rumba congolaise en live avec Le Karmapa, le 2 août 2025 à Paris !">
   <meta property="og:image" content="affiche.jpg">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+    
     :root {
-      --primary: #e9be70;
-      --accent: #c69a3c;
-      --dark-bg: #181113;
-      --card-bg: #24181a;
-      --text: #fff;
-      --subtle: #a39589;
-      --button-hover: #cfb15d;
+      --gradient-primary: linear-gradient(135deg, #ff6b35, #f7931e, #ffcc02);
+      --gradient-secondary: linear-gradient(135deg, #667eea, #764ba2);
+      --gradient-bg: linear-gradient(45deg, #0f0c29, #24243e, #302b63);
+      --text-primary: #ffffff;
+      --text-accent: #ffcc02;
+      --card-bg: rgba(255, 255, 255, 0.1);
+      --shadow-glow: 0 0 30px rgba(255, 204, 2, 0.3);
+      --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
-    html, body {
-      height: 100%;
+
+    * {
       margin: 0;
       padding: 0;
-      background: var(--dark-bg);
-      color: var(--text);
-      font-family: 'Montserrat', Arial, sans-serif;
-      min-height: 100vh;
+      box-sizing: border-box;
     }
+
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      background: var(--gradient-bg);
+      color: var(--text-primary);
       min-height: 100vh;
-      background: linear-gradient(120deg, #181113 60%, #311f11 100%);
+      padding: 10px;
+      overflow-x: hidden;
     }
-    .concert-card {
-      width: 100%;
-      max-width: 430px;
-      background: var(--card-bg);
-      border-radius: 22px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.65);
-      overflow: hidden;
-      animation: fadeInUp .9s cubic-bezier(.57,1.52,.71,.84);
-      margin: 18px 0;
-      position: relative;
-    }
-    @keyframes fadeInUp {
-      from {transform: translateY(60px) scale(.98);opacity:0;}
-      to {transform: translateY(0) scale(1);opacity:1;}
-    }
-    .cover {
-      width: 100%;
-      background: #1a1315;
-    }
-    .cover img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #181113;
-      filter: brightness(.98) drop-shadow(0 6px 24px #0007);
-      border-radius: 0;
+
+    .container {
+      max-width: 450px;
       margin: 0 auto;
-      max-height: 520px;
-      object-fit: contain;
-      /* On retire aspect-ratio et object-fit: cover */
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .content {
-      padding: 0 22px 20px 22px;
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
-    h1 {
-      margin: 22px 0 6px 0;
-      font-size: 2.1em;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: var(--primary);
-      text-shadow: 0 2px 12px #0009;
-    }
-    .subtitle {
-      font-size: 1.14em;
-      margin-bottom: 12px;
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      font-weight: 600;
-    }
-    .date-lieu {
-      margin: 12px 0 10px 0;
-      font-size: 1.05em;
-      color: var(--text);
-      font-weight: 600;
-    }
-    .date-lieu span {
-      color: var(--primary);
-      font-weight: bold;
-      margin-left: 2px;
-    }
-    .btn-reserver {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--dark-bg);
-      font-weight: bold;
-      font-size: 1.12em;
-      padding: 13px 38px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 18px 0 10px 0;
-      transition: background .2s, transform .2s, box-shadow .2s;
-      box-shadow: 0 2px 16px #e9be7077;
+
+    .header {
+      text-align: center;
+      padding: 25px 20px 15px;
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.8), rgba(247, 147, 30, 0.8));
       position: relative;
       overflow: hidden;
     }
-    .btn-reserver:hover, .btn-reserver:focus {
-      background: var(--button-hover);
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 8px 24px #e9be7099;
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 204, 2, 0.1) 0%, transparent 70%);
+      animation: rotate 10s linear infinite;
     }
-    .footer {
-      margin-top: 18px;
-      font-size: 1em;
-      color: var(--subtle);
-      border-top: 1px solid #3a2b2c;
-      padding-top: 12px;
-      text-align: center;
-      letter-spacing: 0.1px;
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
+
+    .artist-name {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #fff, #ffcc02);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(255, 204, 2, 0.5);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .concert-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .video-section {
+      padding: 20px;
+      position: relative;
+    }
+
     .video-container {
       position: relative;
       width: 100%;
-      padding-bottom: 56.2%;
-      background: #111;
-      margin-top: 18px;
-      margin-bottom: 12px;
-      border-radius: 13px;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 2px 12px #0009;
-      transition: box-shadow 0.3s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
     }
-    .video-container video,
-    .video-container iframe {
+
+    .video-container video {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      border: none;
-      background: #000;
-      border-radius: 13px;
+      object-fit: cover;
     }
-    .share-btn {
-      margin: 16px auto 6px auto;
-      display: inline-block;
-      background: #19191b;
-      color: var(--primary);
-      border: 1.2px solid var(--primary);
-      border-radius: 8px;
-      font-size: 1em;
-      padding: 7px 18px;
+
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-glow);
+      z-index: 10;
+    }
+
+    .play-overlay:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 50px rgba(255, 204, 2, 0.6);
+    }
+
+    .play-icon {
+      font-size: 2rem;
+      color: white;
+      margin-left: 5px;
+    }
+
+    .event-details {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .date-time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-accent);
+      text-shadow: 0 0 10px rgba(255, 204, 2, 0.3);
+    }
+
+    .location {
+      text-align: center;
+      font-size: 1.1rem;
       font-weight: 600;
-      transition: background 0.18s, color 0.18s, box-shadow 0.2s;
+      margin-bottom: 20px;
+      line-height: 1.4;
     }
-    .share-btn:hover {
-      background: var(--primary);
-      color: #181113;
-      box-shadow: 0 4px 18px #e9be7066;
+
+    .poster-section {
+      padding: 25px 20px 20px;
     }
-    @media (max-width: 550px) {
-      .concert-card { max-width: 100vw; border-radius: 0; }
-      .content { padding: 0 4vw 22px 4vw;}
-      .cover img { max-height: 38vw; }
+
+    .poster-container {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+      transition: transform 0.3s ease;
+    }
+
+    .poster-container:hover {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    }
+
+    .poster-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    .action-buttons {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 18px 30px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+      text-decoration: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(255, 107, 53, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 15px 25px;
+      border: 2px solid rgba(255, 204, 2, 0.5);
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 204, 2, 0.2);
+      border-color: var(--text-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 204, 2, 0.3);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .highlight {
+      color: var(--text-accent);
+      font-weight: 600;
+    }
+
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-note {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .floating-note:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .floating-note:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+    .floating-note:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+    .floating-note:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      body {
+        padding: 5px;
+      }
+      
+      .container {
+        border-radius: 15px;
+      }
+      
+      .artist-name {
+        font-size: 2rem;
+      }
+      
+      .date-time {
+        font-size: 1.1rem;
+      }
+      
+      .btn-primary {
+        font-size: 1.1rem;
+        padding: 16px 25px;
+      }
+      
+      .header {
+        padding: 20px 15px 10px;
+      }
+      
+      .video-section,
+      .event-details,
+      .poster-section,
+      .action-buttons {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .artist-name {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+      }
+      
+      .date-time {
+        font-size: 1rem;
+      }
+      
+      .location {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="concert-card">
-    <div class="cover">
-      <img src="affiche.jpg" alt="Affiche Le Karmapa">
+  <div class="floating-elements">
+    <div class="floating-note">🎵</div>
+    <div class="floating-note">🎶</div>
+    <div class="floating-note">🎤</div>
+    <div class="floating-note">🎸</div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1 class="artist-name">LE KARMAPA</h1>
+      <div class="subtitle">Prince de Kirumba</div>
+      <div class="concert-badge">✨ Concert Exceptionnel ✨</div>
     </div>
-    <div class="content">
-      <h1>LE KARMAPA</h1>
-      <div class="subtitle">Prince de Kirumba • Concert exceptionnel</div>
-      <div class="date-lieu">
-        <span>02 août 2025, 20h</span><br>
-        Théâtre du Gymnase Marie Bell, Paris
+
+    <div class="poster-section">
+      <div class="poster-container">
+        <img src="affiche.jpg" alt="Affiche Le Karmapa - Prince de Kirumba">
       </div>
-      <div class="video-container" id="video">
-        <video controls poster="affiche.jpg">
+    </div>
+
+    <div class="event-details">
+      <div class="date-time">
+        🗓️ <span class="highlight">02 AOÛT 2025</span> • 20H00
+      </div>
+      <div class="location">
+        📍 <strong>Théâtre du Gymnase Marie Bell</strong><br>
+        Paris, France
+      </div>
+    </div>
+
+    <div class="video-section">
+      <div class="video-container" id="videoContainer">
+        <video id="concertVideo" poster="affiche.jpg">
           <source src="karmapa.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la vidéo.
         </video>
-      </div>
-      <a href="https://www.theatredugymnase.com" target="_blank" class="btn-reserver">🎟️ Réservez votre place</a>
-      <button class="share-btn" onclick="shareConcert()">📲 Partager sur WhatsApp</button>
-      <div class="footer">
-        Une nuit de légende – Rumba congolaise, émotions et partage.<br>
-        <small>@echoskato – Production ZPI & Kingdom Records</small>
+        <div class="play-overlay" onclick="playVideo()">
+          <div class="play-icon">▶️</div>
+        </div>
       </div>
     </div>
+
+    <div class="action-buttons">
+      <a href="https://www.theatredugymnase.com" target="_blank" class="btn-primary">
+        🎟️ RÉSERVER MA PLACE
+      </a>
+      <button class="btn-secondary" onclick="shareConcert()">
+        📲 PARTAGER SUR WHATSAPP
+      </button>
+    </div>
+
+    <div class="footer">
+      <strong class="highlight">🔥 Une nuit de légende</strong><br>
+      Rumba congolaise • Émotions • Partage<br>
+      <br>
+      <small>@echoskato • Production ZPI & Kingdom Records</small>
+    </div>
   </div>
+
   <script>
-    // Partage WhatsApp avec message pré-rempli
-    function shareConcert() {
-      var url = window.location.href;
-      var msg = "🔥 Le Karmapa en concert à Paris le 2 août 2025 !\nBilletterie 👉 https://www.theatredugymnase.com\nDécouvre la vidéo et toutes les infos ici 👉 " + url;
-      var wa = "https://wa.me/?text=" + encodeURIComponent(msg);
-      window.open(wa, '_blank');
+    function playVideo() {
+      const video = document.getElementById('concertVideo');
+      const overlay = document.querySelector('.play-overlay');
+      
+      if (video.paused) {
+        video.play();
+        overlay.style.display = 'none';
+        video.setAttribute('controls', 'controls');
+      }
     }
+
+    function shareConcert() {
+      const url = window.location.href;
+      const message = `🔥 LE KARMAPA EN CONCERT ! 🔥
+      
+🎤 Prince de Kirumba
+📅 2 août 2025 à 20h
+📍 Théâtre du Gymnase Marie Bell, Paris
+
+✨ Une soirée exceptionnelle de rumba congolaise !
+
+🎟️ Billetterie: https://www.theatredugymnase.com
+
+👀 Découvre la vidéo et toutes les infos ici:
+${url}
+
+#LeKarmapa #RumbaCongolaise #Concert2025`;
+
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Animation des éléments au scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'slideUp 0.6s ease-out';
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.video-section, .event-details, .poster-section, .action-buttons');
+      elements.forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 </html>
