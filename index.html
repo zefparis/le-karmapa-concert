@@ -6,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Le Karmapa au Théâtre du Gymnase – 2 août 2025">
   <meta property="og:description" content="Vivez la rumba congolaise en live avec Le Karmapa, le 2 août 2025 à Paris !">
-  <meta property="og:image" content="https://yourserver.com/le-karmapa-concert.jpg">
+  <meta property="og:image" content="affiche.jpg">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap');
-
     :root {
       --primary: #e9be70;
       --accent: #c69a3c;
@@ -50,12 +49,21 @@
       from {transform: translateY(60px) scale(.98);opacity:0;}
       to {transform: translateY(0) scale(1);opacity:1;}
     }
+    .cover {
+      width: 100%;
+      background: #1a1315;
+    }
     .cover img {
       width: 100%;
+      height: auto;
       display: block;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      filter: brightness(.95) drop-shadow(0 6px 24px #0007);
+      background: #181113;
+      filter: brightness(.98) drop-shadow(0 6px 24px #0007);
+      border-radius: 0;
+      margin: 0 auto;
+      max-height: 520px;
+      object-fit: contain;
+      /* On retire aspect-ratio et object-fit: cover */
     }
     .content {
       padding: 0 22px 20px 22px;
@@ -115,7 +123,6 @@
       text-align: center;
       letter-spacing: 0.1px;
     }
-    /* Vidéo responsive */
     .video-container {
       position: relative;
       width: 100%;
@@ -159,13 +166,13 @@
     @media (max-width: 550px) {
       .concert-card { max-width: 100vw; border-radius: 0; }
       .content { padding: 0 4vw 22px 4vw;}
+      .cover img { max-height: 38vw; }
     }
   </style>
 </head>
 <body>
   <div class="concert-card">
     <div class="cover">
-      <!-- Remplacer l’URL par celle de l’affiche finale -->
       <img src="affiche.jpg" alt="Affiche Le Karmapa">
     </div>
     <div class="content">
@@ -175,26 +182,20 @@
         <span>02 août 2025, 20h</span><br>
         Théâtre du Gymnase Marie Bell, Paris
       </div>
-
-      <!-- Bloc Vidéo Responsive (remplacer le lien par ton .mp4 ou un YouTube) -->
       <div class="video-container" id="video">
         <video controls poster="affiche.jpg">
           <source src="karmapa.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la vidéo.
         </video>
       </div>
-
       <a href="https://www.theatredugymnase.com" target="_blank" class="btn-reserver">🎟️ Réservez votre place</a>
-
       <button class="share-btn" onclick="shareConcert()">📲 Partager sur WhatsApp</button>
-
       <div class="footer">
         Une nuit de légende – Rumba congolaise, émotions et partage.<br>
         <small>@echoskato – Production ZPI & Kingdom Records</small>
       </div>
     </div>
   </div>
-
   <script>
     // Partage WhatsApp avec message pré-rempli
     function shareConcert() {
