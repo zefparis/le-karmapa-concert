@@ -4,22 +4,8 @@
   <meta charset="UTF-8">
   <title>🔥 Le Karmapa en concert – 2 août 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="🔥 Le Karmapa au Théâtre du Gymnase – 2 août 2025">
-  <meta property="og:description" content="Vivez la rumba congolaise en live avec Le Karmapa, le 2 août 2025 à Paris !">
-  <meta property="og:image" content="affiche.jpg">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
-    
-    :root {
-      --gradient-primary: linear-gradient(135deg, #ff6b35, #f7931e, #ffcc02);
-      --gradient-secondary: linear-gradient(135deg, #667eea, #764ba2);
-      --gradient-bg: linear-gradient(45deg, #0f0c29, #24243e, #302b63);
-      --text-primary: #ffffff;
-      --text-accent: #ffcc02;
-      --card-bg: rgba(255, 255, 255, 0.1);
-      --shadow-glow: 0 0 30px rgba(255, 204, 2, 0.3);
-      --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4);
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700;800;900&display=swap');
 
     * {
       margin: 0;
@@ -29,42 +15,80 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--gradient-bg);
-      color: var(--text-primary);
+      background: #1a1a1a;
+      color: #fff;
+      overflow-x: hidden;
       min-height: 100vh;
       padding: 10px;
-      overflow-x: hidden;
     }
 
+    /* Conteneur principal avec fond étoilé intégré */
     .container {
       max-width: 450px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      border-radius: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .header {
-      text-align: center;
-      padding: 25px 20px 15px;
-      background: linear-gradient(135deg, rgba(255, 107, 53, 0.8), rgba(247, 147, 30, 0.8));
+      margin: 10px auto;
+      background: radial-gradient(circle at 20% 80%, #120033 0%, #000000 50%, #1a0033 100%);
+      border-radius: 30px;
+      box-shadow: 
+        0 0 80px rgba(255, 215, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 215, 0, 0.2);
       position: relative;
       overflow: hidden;
+      animation: containerPulse 4s ease-in-out infinite;
+      min-height: calc(100vh - 20px);
+    }
+
+    @keyframes containerPulse {
+      0%, 100% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.3); }
+      50% { box-shadow: 0 0 120px rgba(255, 215, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 30px 60px rgba(0, 0, 0, 0.4); }
+    }
+
+    /* Particules à l'intérieur du conteneur */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #ffd700;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    }
+
+    /* Contenu principal au-dessus des particules */
+    .content {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Header avec effet holographique */
+    .header {
+      text-align: center;
+      background: linear-gradient(135deg, 
+        rgba(29, 24, 63, 0.8) 0%, 
+        rgba(88, 28, 135, 0.6) 50%, 
+        rgba(255, 204, 0, 0.1) 100%);
+      padding: 40px 20px 30px;
+      border-radius: 30px 30px 0 0;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
     .header::before {
@@ -74,73 +98,224 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255, 204, 2, 0.1) 0%, transparent 70%);
-      animation: rotate 10s linear infinite;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+      animation: rotate 8s linear infinite;
     }
 
     @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
     }
 
     .artist-name {
-      font-size: 2.5rem;
+      font-family: 'Orbitron', monospace;
+      font-size: 3rem;
       font-weight: 900;
-      background: linear-gradient(45deg, #fff, #ffcc02);
+      background: linear-gradient(45deg, #ffffff, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+      background-size: 400% 400%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 30px rgba(255, 204, 2, 0.5);
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 2;
+      animation: gradientShift 3s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+      margin-bottom: 10px;
+      transform: perspective(500px) rotateX(15deg);
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .subtitle {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 2;
+      font-weight: 300;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      opacity: 0.9;
+      letter-spacing: 2px;
     }
 
     .concert-badge {
+      background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 107, 0.2));
+      padding: 12px 25px;
+      border-radius: 25px;
       display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 5px 15px;
-      border-radius: 20px;
+      color: #ffd700;
+      border: 2px solid rgba(255, 215, 0, 0.5);
+      font-weight: 700;
       font-size: 0.9rem;
-      font-weight: 600;
       backdrop-filter: blur(10px);
+      animation: badgePulse 2s ease-in-out infinite;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+    }
+
+    /* Compteur avec effet néon */
+    #countdown {
+      text-align: center;
+      font-family: 'Orbitron', monospace;
+      font-size: 1.4rem;
+      margin: 25px 20px;
+      font-weight: 700;
+      color: #ffd700;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      animation: neonGlow 2s ease-in-out infinite alternate;
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes neonGlow {
+      from { text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.6); }
+      to { text-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.8); }
+    }
+
+    /* Poster avec effet 3D */
+    .poster-container {
+      margin: 20px;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .poster-container:hover {
+      transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .poster-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+      z-index: 1;
+    }
+
+    .poster-container:hover::before {
+      transform: translateX(100%);
+    }
+
+    .poster-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(45deg, #1a0033, #330066, #660099);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      position: relative;
+    }
+
+    /* Intro vidéo avec animation avancée */
+    .video-intro {
+      margin: 30px 20px 20px;
+      padding: 30px;
+      text-align: center;
+      background: linear-gradient(135deg, 
+        rgba(43, 35, 90, 0.9) 0%, 
+        rgba(63, 30, 125, 0.8) 50%, 
+        rgba(88, 28, 135, 0.9) 100%);
+      border: 2px solid rgba(255, 215, 0, 0.4);
+      border-radius: 25px;
+      position: relative;
+      overflow: hidden;
+      animation: introFloat 6s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+    }
+
+    .video-intro::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    @keyframes introFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .video-intro .flag {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      animation: flagWave 2s ease-in-out infinite;
+    }
+
+    @keyframes flagWave {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .video-intro h2 {
+      font-size: 1.6rem;
+      color: #ffd700;
+      margin-bottom: 10px;
+      font-weight: 800;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
       position: relative;
       z-index: 2;
     }
 
-    .video-section {
-      padding: 20px;
+    .video-intro .tagline {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 600;
       position: relative;
+      z-index: 2;
     }
 
+    /* Conteneur vidéo avec effets premium */
     .video-container {
       position: relative;
-      width: 100%;
+      margin: 20px;
       padding-bottom: 56.25%;
-      background: #000;
-      border-radius: 15px;
+      height: 0;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      margin-bottom: 20px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 215, 0, 0.2);
     }
 
-    .video-container video {
+    .video-placeholder {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background: linear-gradient(45deg, #1a0033, #330066);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
     }
 
     .play-overlay {
@@ -148,340 +323,341 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 80px;
-      height: 80px;
-      background: var(--gradient-primary);
+      background: linear-gradient(135deg, #9d00ff, #ffcc00);
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-glow);
       z-index: 10;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+      animation: playPulse 2s ease-in-out infinite;
+      transition: all 0.3s ease;
     }
 
     .play-overlay:hover {
       transform: translate(-50%, -50%) scale(1.1);
-      box-shadow: 0 0 50px rgba(255, 204, 2, 0.6);
+      box-shadow: 0 0 60px rgba(255, 215, 0, 0.8);
+    }
+
+    @keyframes playPulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+      50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 215, 0, 0.4); }
     }
 
     .play-icon {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: white;
       margin-left: 5px;
     }
 
-    .event-details {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Détails avec style premium */
+    .details {
+      margin: 30px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
 
     .date-time {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
+      font-family: 'Orbitron', monospace;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: var(--text-accent);
-      text-shadow: 0 0 10px rgba(255, 204, 2, 0.3);
+      margin-bottom: 15px;
+      color: #ffd700;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
     }
 
     .location {
-      text-align: center;
-      font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    .poster-section {
-      padding: 25px 20px 20px;
-    }
-
-    .poster-container {
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-      transition: transform 0.3s ease;
-    }
-
-    .poster-container:hover {
-      transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
-    }
-
-    .poster-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: brightness(1.1) contrast(1.1);
-    }
-
-    .action-buttons {
-      padding: 20px;
+    /* Boutons avec animations avancées */
+    .actions {
+      margin: 25px 20px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
+    }
+
+    .btn {
+      text-align: center;
+      padding: 18px 25px;
+      font-size: 1.2rem;
+      border-radius: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      position: relative;
+      overflow: hidden;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      color: white;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn-primary {
-      background: var(--gradient-primary);
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 18px 30px;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-      text-decoration: none;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      background: linear-gradient(135deg, #9d00ff, #ffcc00, #ff6b6b);
+      background-size: 200% 200%;
+      animation: gradientMove 3s ease infinite;
+      box-shadow: 0 15px 30px rgba(255, 204, 0, 0.4);
+      transform: perspective(500px) rotateX(5deg);
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(255, 107, 53, 0.6);
+      transform: perspective(500px) rotateX(0deg) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 204, 0, 0.6);
+    }
+
+    @keyframes gradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 15px 25px;
-      border: 2px solid rgba(255, 204, 2, 0.5);
-      border-radius: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 215, 0, 0.5);
       backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 204, 2, 0.2);
-      border-color: var(--text-accent);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(255, 204, 2, 0.3);
+      background: rgba(255, 204, 0, 0.15);
+      border-color: rgba(255, 215, 0, 0.8);
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
     }
 
+    /* Footer stylisé */
     .footer {
       text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
       font-size: 0.9rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 25px 20px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 0 0 30px 30px;
+      border-top: 1px solid rgba(255, 215, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
 
-    .highlight {
-      color: var(--text-accent);
-      font-weight: 600;
+    /* Animations d'entrée */
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
     }
 
-    .floating-elements {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
+    .fade-in:nth-child(4) { animation-delay: 0.4s; }
+    .fade-in:nth-child(5) { animation-delay: 0.5s; }
+    .fade-in:nth-child(6) { animation-delay: 0.6s; }
+    .fade-in:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .floating-note {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.1;
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .floating-note:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-    .floating-note:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
-    .floating-note:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
-    .floating-note:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 6s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* Responsive Design */
+    /* Responsive design */
     @media (max-width: 480px) {
-      body {
-        padding: 5px;
-      }
-      
       .container {
-        border-radius: 15px;
+        margin: 5px;
+        max-width: calc(100% - 10px);
+        min-height: calc(100vh - 10px);
       }
       
       .artist-name {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
-      .date-time {
-        font-size: 1.1rem;
-      }
-      
-      .btn-primary {
-        font-size: 1.1rem;
-        padding: 16px 25px;
-      }
-      
-      .header {
-        padding: 20px 15px 10px;
-      }
-      
-      .video-section,
-      .event-details,
-      .poster-section,
-      .action-buttons {
-        padding: 15px;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .artist-name {
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-      }
-      
-      .date-time {
+      .btn {
         font-size: 1rem;
-      }
-      
-      .location {
-        font-size: 1rem;
+        padding: 15px 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="floating-elements">
-    <div class="floating-note">🎵</div>
-    <div class="floating-note">🎶</div>
-    <div class="floating-note">🎤</div>
-    <div class="floating-note">🎸</div>
-  </div>
 
-  <div class="container">
-    <div class="header">
-      <h1 class="artist-name">LE KARMAPA</h1>
-      <div class="subtitle">Prince de Kirumba</div>
-      <div class="concert-badge">✨ Concert Exceptionnel ✨</div>
-    </div>
-
-    <div class="poster-section">
-      <div class="poster-container">
-        <img src="affiche.jpg" alt="Affiche Le Karmapa - Prince de Kirumba">
+<div class="container">
+  <!-- Particules à l'intérieur -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Contenu principal -->
+  <div class="content">
+    <div class="header fade-in">
+      <div class="header-content">
+        <h1 class="artist-name">LE KARMAPA</h1>
+        <div class="subtitle">Prince de Kirumba</div>
+        <div class="concert-badge">✨ Concert Exceptionnel ✨</div>
       </div>
     </div>
 
-    <div class="event-details">
-      <div class="date-time">
-        🗓️ <span class="highlight">02 AOÛT 2025</span> • 20H00
-      </div>
-      <div class="location">
-        📍 <strong>Théâtre du Gymnase Marie Bell</strong><br>
-        Paris, France
+    <div id="countdown" class="fade-in"></div>
+
+    <div class="poster-container fade-in">
+      <div class="poster-placeholder">
+        🎤 Affiche du Concert 🎤
       </div>
     </div>
 
-    <div class="video-section">
-      <div class="video-container" id="videoContainer">
-        <video id="concertVideo" poster="affiche.jpg">
-          <source src="karmapa.mp4" type="video/mp4">
-          Votre navigateur ne supporte pas la vidéo.
-        </video>
-        <div class="play-overlay" onclick="playVideo()">
-          <div class="play-icon">▶️</div>
-        </div>
+    <div class="video-intro fade-in">
+      <div class="flag">
+        <img src="https://flagcdn.com/w80/cd.png" alt="Drapeau RDC" width="50" height="34" style="border-radius: 4px;">
+      </div>
+      <h2>Ils t'attendent à Paris !</h2>
+      <p class="tagline">🔥 Toute la vibe du Congo t'appelle 🔥</p>
+    </div>
+
+    <div class="video-container fade-in">
+      <div class="video-placeholder">
+        🎬 Vidéo Promotionnelle 🎬
+      </div>
+      <div class="play-overlay" onclick="playVideo()">
+        <div class="play-icon">▶️</div>
       </div>
     </div>
 
-    <div class="action-buttons">
-      <a href="https://www.theatredugymnase.com" target="_blank" class="btn-primary">
-        🎟️ RÉSERVER MA PLACE
-      </a>
-      <button class="btn-secondary" onclick="shareConcert()">
-        📲 PARTAGER SUR WHATSAPP
-      </button>
+    <div class="details fade-in">
+      <div class="date-time">🗓️ 2 août 2025 • 20h00</div>
+      <div class="location">📍 Théâtre du Gymnase Marie Bell, Paris</div>
     </div>
 
-    <div class="footer">
-      <strong class="highlight">🔥 Une nuit de légende</strong><br>
-      Rumba congolaise • Émotions • Partage<br>
-      <br>
-      <small>@echoskato • Production ZPI & Kingdom Records</small>
+    <div class="actions fade-in">
+      <a class="btn btn-primary" href="https://www.theatredugymnase.com" target="_blank">🎟️ Réserver ma place</a>
+      <button class="btn btn-secondary" onclick="shareConcert()">📲 Partager sur WhatsApp</button>
+    </div>
+
+    <div class="footer fade-in">
+      🔥 Une nuit de légende • Rumba congolaise • Émotions<br>
+      <small>@echoskato • ZPI & Kingdom Records</small>
     </div>
   </div>
+</div>
 
-  <script>
-    function playVideo() {
-      const video = document.getElementById('concertVideo');
-      const overlay = document.querySelector('.play-overlay');
+<script>
+  // Création des particules animées
+  function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
       
-      if (video.paused) {
-        video.play();
-        overlay.style.display = 'none';
-        video.setAttribute('controls', 'controls');
-      }
+      // Position aléatoire
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      
+      // Délai d'animation aléatoire
+      particle.style.animationDelay = Math.random() * 6 + 's';
+      particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+      
+      particlesContainer.appendChild(particle);
     }
+  }
 
-    function shareConcert() {
-      const url = window.location.href;
-      const message = `🔥 LE KARMAPA EN CONCERT ! 🔥
-      
+  function playVideo() {
+    const overlay = document.querySelector('.play-overlay');
+    const container = document.querySelector('.video-container');
+    
+    // Animation de clic
+    overlay.style.transform = 'translate(-50%, -50%) scale(0.9)';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      container.innerHTML = '<div class="video-placeholder">🎬 Lecture de la vidéo... 🎬</div>';
+    }, 200);
+  }
+
+  function shareConcert() {
+    const url = window.location.href;
+    const message = `🔥 LE KARMAPA EN CONCERT ! 🔥
+
 🎤 Prince de Kirumba
 📅 2 août 2025 à 20h
-📍 Théâtre du Gymnase Marie Bell, Paris
+📍 Théâtre du Gymnase, Paris
 
 ✨ Une soirée exceptionnelle de rumba congolaise !
 
-🎟️ Billetterie: https://www.theatredugymnase.com
+🎟️ Billets : https://www.theatredugymnase.com
+Infos : ${url}
 
-👀 Découvre la vidéo et toutes les infos ici:
-${url}
+#LeKarmapa #ConcertParis2025`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  }
 
-#LeKarmapa #RumbaCongolaise #Concert2025`;
+  function updateCountdown() {
+    const eventDate = new Date("2025-08-02T20:00:00");
+    const now = new Date();
+    const diff = eventDate - now;
 
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "🎉 <strong>C'est le grand soir !</strong> 🎉";
+      return;
     }
 
-    // Animation des éléments au scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = 'slideUp 0.6s ease-out';
-        }
-      });
-    }, observerOptions);
+    document.getElementById("countdown").innerHTML =
+      `⏳ <strong>${days}</strong> jours <strong>${hours}</strong>h <strong>${minutes}</strong>min<br>
+       <small style="opacity: 0.8;">avant le show</small>`;
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const elements = document.querySelectorAll('.video-section, .event-details, .poster-section, .action-buttons');
-      elements.forEach(el => observer.observe(el));
+  // Initialisation
+  document.addEventListener('DOMContentLoaded', function() {
+    createParticles();
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+    
+    // Animation d'entrée en cascade
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.style.animationDelay = (index * 0.1) + 's';
+      }, 100);
     });
-  </script>
+  });
+
+  // Effet de parallaxe au scroll
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const particles = document.querySelectorAll('.particle');
+    
+    particles.forEach((particle, index) => {
+      const speed = (index % 3 + 1) * 0.5;
+      particle.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+</script>
+
 </body>
 </html>
